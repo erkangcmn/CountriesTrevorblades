@@ -5,7 +5,6 @@ import { Table } from 'react-bootstrap';
 function TableComponent() {
     return (
         <>
-            <h2>Seçilen Kıta:</h2>
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
