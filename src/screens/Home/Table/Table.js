@@ -2,6 +2,7 @@ import React from 'react'
 import { gql, useQuery } from '@apollo/client';
 import { Table, Button } from 'react-bootstrap';
 
+
 const LIST_COUNTRY = gql`
      { 
         continent(code: "AS")  {                      
@@ -15,7 +16,7 @@ const LIST_COUNTRY = gql`
     }
 `;
 
-function TableComponent() {
+function TableComponent(props) {
 
     const { loading, error, data } = useQuery(LIST_COUNTRY, {
         variables: { code: 'AS' },
@@ -28,6 +29,7 @@ function TableComponent() {
 
     return (
         <>
+        <h1>Seçilen Ülke Kodu:{props.name}</h1>
             <Table striped bordered hover>
                 <thead>
                     <tr>

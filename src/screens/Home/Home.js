@@ -33,7 +33,7 @@ function LeftMenu() {
                 </Col>
 
                 <Col>
-                   <TableComponent/>
+                   <TableComponent name={continent}/>
                 </Col>
 
             </Row>
