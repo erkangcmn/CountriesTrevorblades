@@ -29,7 +29,7 @@ function TableComponent(props) {
 
     return (
         <>
-            <h1>Seçilen Ülke Kodu:{props.name}</h1>
+            <h1>Selected Country Code: {props.name}</h1>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -37,13 +37,10 @@ function TableComponent(props) {
                         <th>Name</th>
                         <th>Capital</th>
                         <th>Emoji</th>
+                        <th>Detail</th>
                     </tr>
                 </thead>
                 <tbody>
-
-
-
-
                     {
                         listData.sort((a, b) => a.timeM > b.timeM ? -1 : 1).map(
                             (item, index) => item.map(a => {

@@ -36,7 +36,7 @@ function Graphic() {
 
     return (
         <Container>
-            <h1>Kıtalara Göre Ülke Sayısı</h1>
+            <h1>Number of Countries by Continent</h1>
             <div style={{ maxWidth: "650px" }}>
                 <Bar
                     data={{
