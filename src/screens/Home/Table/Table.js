@@ -1,6 +1,8 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client';
-import { Table, Button } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
+
+import ModalComponent from './Modal/Modal';
 
 
 const LIST_COUNTRY = gql` 
@@ -37,7 +39,7 @@ function TableComponent(props) {
                         <th>Name</th>
                         <th>Capital</th>
                         <th>Emoji</th>
-                        <th>Detail</th>
+                        <th>Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,7 +54,7 @@ function TableComponent(props) {
                                                 <td>{(a.name)}</td>
                                                 <td>{(a.capital)}</td>
                                                 <td>{(a.emoji)}</td>
-                                                <td><Button variant="outline-success">Detay</Button></td>
+                                                <td><ModalComponent/></td>
                                             </tr>
                                             : null
                                         }
