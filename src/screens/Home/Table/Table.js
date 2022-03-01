@@ -3,9 +3,9 @@ import { gql, useQuery } from '@apollo/client';
 import { Table, Button } from 'react-bootstrap';
 
 
-const LIST_COUNTRY = gql`
-     { 
-        continent(code: "AS")  {                      
+const LIST_COUNTRY = gql` 
+    query LISTCOUNTRY($code: ID!) {
+        continent(code: $code)  {                      
             name
             countries{
                 name
@@ -19,7 +19,7 @@ const LIST_COUNTRY = gql`
 function TableComponent(props) {
 
     const { loading, error, data } = useQuery(LIST_COUNTRY, {
-        variables: { code: 'AS' },
+        variables: { code: props.name },
     });
 
     if (loading || error) {
@@ -29,7 +29,7 @@ function TableComponent(props) {
 
     return (
         <>
-        <h1>Seçilen Ülke Kodu:{props.name}</h1>
+            <h1>Seçilen Ülke Kodu:{props.name}</h1>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -46,19 +46,19 @@ function TableComponent(props) {
 
                     {
                         listData.sort((a, b) => a.timeM > b.timeM ? -1 : 1).map(
-                            (item,index )=> item.map( a => {
+                            (item, index) => item.map(a => {
                                 return (
                                     <>
-                                    {(a.name) ?
-                                    <tr key={index}>
-                                        <td>{index + 1}</td>
-                                        <td>{(a.name)}</td>
-                                        <td>{(a.capital)}</td>
-                                        <td>{(a.emoji)}</td>
-                                        <td><Button variant="outline-success">Detay</Button></td>
-                                    </tr>
-                                    :null
-                                    }
+                                        {(a.name) ?
+                                            <tr key={index}>
+                                                <td>{index + 1}</td>
+                                                <td>{(a.name)}</td>
+                                                <td>{(a.capital)}</td>
+                                                <td>{(a.emoji)}</td>
+                                                <td><Button variant="outline-success">Detay</Button></td>
+                                            </tr>
+                                            : null
+                                        }
                                     </>
                                 )
                             })
