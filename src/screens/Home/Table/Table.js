@@ -13,6 +13,9 @@ const LIST_COUNTRY = gql`
                 name
                 capital
                 emoji 
+                languages{
+                    name
+                }
             }
         }   
     }
@@ -54,7 +57,7 @@ function TableComponent(props) {
                                                 <td>{(a.name)}</td>
                                                 <td>{(a.capital)}</td>
                                                 <td>{(a.emoji)}</td>
-                                                <td><ModalComponent/></td>
+                                                <td><ModalComponent countriesDetails={a}/></td>
                                             </tr>
                                             : null
                                         }
